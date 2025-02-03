@@ -4,6 +4,7 @@ import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Positive;
 import ob.gustavo.assistentet20spring.models.PersonagemT20;
+import ob.gustavo.assistentet20spring.models.PoderT20;
 import ob.gustavo.assistentet20spring.services.PersonagemT20Service;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
@@ -51,4 +52,15 @@ public class PersonagemT20Controller {
         personagemT20Service.deletar(id);
     }
 
+    @PostMapping("/poderes")
+    @CrossOrigin(origins = "http://localhost:5173")
+    public PoderT20 adicionarPoder(@RequestParam @NotNull @Positive Long idPersonagem,@RequestBody @NotNull @Valid PoderT20 poderT20){
+        return personagemT20Service.adicionarPoder(idPersonagem, poderT20);
+    }
+
+    @DeleteMapping("/poderes/{id}")
+    @CrossOrigin(origins = "http://localhost:5173")
+    public void removerPoder(@PathVariable @NotNull @Positive Long id){
+        personagemT20Service.removerPoder(id);
+    }
 }

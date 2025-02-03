@@ -5,7 +5,9 @@ import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Positive;
 import ob.gustavo.assistentet20spring.exceptions.RegistroNaoEncontrado;
 import ob.gustavo.assistentet20spring.models.PersonagemT20;
+import ob.gustavo.assistentet20spring.models.PoderT20;
 import ob.gustavo.assistentet20spring.repositories.PersonagemT20Repository;
+import ob.gustavo.assistentet20spring.repositories.PoderT20Repository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -14,9 +16,10 @@ import java.util.List;
 public class PersonagemT20Service {
 
     private final PersonagemT20Repository personagemT20Repository;
-
-    public PersonagemT20Service(PersonagemT20Repository personagemT20Repository){
+    private final PoderT20Repository poderT20Repository;
+    public PersonagemT20Service(PersonagemT20Repository personagemT20Repository, PoderT20Repository poderT20Repository){
         this.personagemT20Repository = personagemT20Repository;
+        this.poderT20Repository = poderT20Repository;
     }
 
     public List<PersonagemT20> listar(){
@@ -58,6 +61,17 @@ public class PersonagemT20Service {
 
     public void deletar(@NotNull @Positive Long id){
         personagemT20Repository.delete(personagemT20Repository.findById(id).orElseThrow(() -> new RegistroNaoEncontrado(id)));
+    }
+
+    public PoderT20 adicionarPoder(@NotNull @Positive Long idPersonagem, @NotNull @Valid PoderT20 poderT20){
+        PersonagemT20 personagem = exibirPorId(idPersonagem);
+        poderT20.setPersonagem(personagem);
+
+        return poderT20Repository.save(poderT20);
+    }
+
+    public void removerPoder(@NotNull @Positive Long id){
+        poderT20Repository.delete(poderT20Repository.findById(id).orElseThrow(() -> new RegistroNaoEncontrado(id)));
     }
 
 }
