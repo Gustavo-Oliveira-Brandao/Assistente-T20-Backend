@@ -14,7 +14,6 @@ public class AtributoT20 {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column
     private Long id;
-
     @NotNull
     @Length(max = 50)
     @Column(nullable = false, length = 50)

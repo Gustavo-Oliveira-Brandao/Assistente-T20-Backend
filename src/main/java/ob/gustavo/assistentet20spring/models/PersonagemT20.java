@@ -1,12 +1,20 @@
 package ob.gustavo.assistentet20spring.models;
 
-import jakarta.persistence.*;
-import jakarta.validation.constraints.NotNull;
-import lombok.Builder;
-import lombok.Data;
+import java.util.List;
+
 import org.hibernate.validator.constraints.Length;
 
-import java.util.List;
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
+import jakarta.validation.constraints.NotNull;
+import lombok.Data;
 
 @Data
 @Entity(name = "personagem_t20")
@@ -41,6 +49,14 @@ public class PersonagemT20 {
     @Length(max = 50)
     @Column(nullable = false, length = 50)
     private String divindade;
+
+    @NotNull
+    @Column(nullable = false)
+    private Integer nivel;
+
+    @NotNull
+    @Column(nullable = false)
+    private Integer experiencia;
 
     @OneToMany(mappedBy = "personagem", cascade = CascadeType.ALL)
     private List<AtributoT20> atributos;

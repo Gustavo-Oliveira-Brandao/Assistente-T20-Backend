@@ -18,53 +18,27 @@ public class DeslocamentoT20 {
     @NotNull
     @PositiveOrZero
     @Column(nullable = false)
-    private Integer valorCaminhadaBase;
+    private Integer caminhada;
 
     @NotNull
     @PositiveOrZero
     @Column(nullable = false)
-    private Integer valorEscaladaBase;
+    private Integer escalada;
 
     @NotNull
     @PositiveOrZero
     @Column(nullable = false)
-    private Integer valorVooBase;
+    private Integer voo;
 
     @NotNull
     @PositiveOrZero
     @Column(nullable = false)
-    private Integer valorNatacaoBase;
+    private Integer natacao;
 
     @NotNull
     @PositiveOrZero
     @Column(nullable = false)
-    private Integer valorEscavacaoBase;
-
-    @NotNull
-    @PositiveOrZero
-    @Column(nullable = false)
-    private Integer bonusCaminhada;
-
-    @NotNull
-    @PositiveOrZero
-    @Column(nullable = false)
-    private Integer bonusEscalada;
-
-    @NotNull
-    @PositiveOrZero
-    @Column(nullable = false)
-    private Integer bonusVoo;
-
-    @NotNull
-    @PositiveOrZero
-    @Column(nullable = false)
-    private Integer bonusNatacao;
-
-    @NotNull
-    @PositiveOrZero
-    @Column(nullable = false)
-    private Integer bonusEscavacao;
-
+    private Integer escavacao;
 
     @OneToOne(mappedBy = "deslocamento")
     @JsonIgnore

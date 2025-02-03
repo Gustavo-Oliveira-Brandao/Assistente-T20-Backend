@@ -16,20 +16,25 @@ public class DefesaT20 {
     private Long id;
 
     @NotNull
-    @Length(max = 100)
-    @Column(nullable = false, length = 100)
-    private String armaduraEquipada;
+    @Column(nullable = false)
+    private Integer valorArmadura;
 
     @NotNull
-    @Length(max = 100)
-    @Column(nullable = false, length = 100)
-    private String escudoEquipado;
+    @Column(nullable = false)
+    private Integer valorEscudo;
+
+    @NotNull
+    @Column(nullable = false)
+    private Integer valorOutros;
+
+    @NotNull
+    @Column(nullable = false)
+    private Integer valorPenalidadeArmadura;
 
     @NotNull
     @Length(max = 50)
     @Column(nullable = false, length = 50)
     private String atributo;
-
 
     @OneToOne(mappedBy = "defesa")
     @JsonIgnore
