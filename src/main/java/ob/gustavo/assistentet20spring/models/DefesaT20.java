@@ -16,20 +16,14 @@ public class DefesaT20 {
     private Long id;
 
     @NotNull
-    @Column(nullable = false)
-    private Integer valorArmadura;
+    @Length(max = 100)
+    @Column(nullable = false, length = 100)
+    private String armaduraEquipada;
 
     @NotNull
-    @Column(nullable = false)
-    private Integer valorEscudo;
-
-    @NotNull
-    @Column(nullable = false)
-    private Integer valorOutros;
-
-    @NotNull
-    @Column(nullable = false)
-    private Integer valorPenalidadeArmadura;
+    @Length(max = 100)
+    @Column(nullable = false, length = 100)
+    private String escudoEquipado;
 
     @NotNull
     @Length(max = 50)
