@@ -35,6 +35,11 @@ public class PoderT20 {
     private String tempoExecucao;
 
     @NotNull
+    @Length(max = 50)
+    @Column(nullable = false, length = 50)
+    private String categoria;
+
+    @NotNull
     @Length(max = 5000)
     @Column(nullable = false, length = 5000)
     private String descricao;
@@ -51,4 +56,7 @@ public class PoderT20 {
 
     @OneToMany(mappedBy = "poder", cascade = CascadeType.ALL)
     private List<TagT20> tags;
+
+    @OneToMany(mappedBy = "poder", cascade = CascadeType.ALL)
+    private List<Topico> topicos;
 }

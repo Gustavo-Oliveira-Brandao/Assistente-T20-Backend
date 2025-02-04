@@ -2,6 +2,7 @@ package ob.gustavo.assistentet20spring.models;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import org.hibernate.validator.constraints.Length;
 
 import jakarta.persistence.CascadeType;
@@ -23,6 +24,7 @@ public class PersonagemT20 {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column
+    @JsonProperty(access = JsonProperty.Access.READ_ONLY)
     private Long id;
 
     @NotNull

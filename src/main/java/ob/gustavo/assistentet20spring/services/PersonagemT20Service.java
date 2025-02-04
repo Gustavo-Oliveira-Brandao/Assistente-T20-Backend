@@ -66,7 +66,12 @@ public class PersonagemT20Service {
     public PoderT20 adicionarPoder(@NotNull @Positive Long idPersonagem, @NotNull @Valid PoderT20 poderT20){
         PersonagemT20 personagem = exibirPorId(idPersonagem);
         poderT20.setPersonagem(personagem);
-
+        poderT20.getTags().forEach(tag -> {
+            tag.setPoder(poderT20);
+        });
+        poderT20.getTopicos().forEach(topico -> {
+            topico.setPoder(poderT20);
+        });
         return poderT20Repository.save(poderT20);
     }
 

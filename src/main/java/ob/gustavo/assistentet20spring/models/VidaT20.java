@@ -1,6 +1,7 @@
 package ob.gustavo.assistentet20spring.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.PositiveOrZero;
@@ -13,6 +14,7 @@ public class VidaT20 {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column
+    @JsonProperty(access = JsonProperty.Access.READ_ONLY)
     private Long id;
 
     @NotNull

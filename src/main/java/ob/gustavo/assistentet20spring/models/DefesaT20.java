@@ -1,6 +1,7 @@
 package ob.gustavo.assistentet20spring.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import lombok.Data;
@@ -13,6 +14,7 @@ public class DefesaT20 {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column
+    @JsonProperty(access = JsonProperty.Access.READ_ONLY)
     private Long id;
 
     @NotNull
